@@ -1,9 +1,23 @@
+sequence = input("input: ")
 
-d = {}
+i_palindromic = 0
 
-with open("write_sample.txt", "w") as handle:
-    handle.write(f"A: {d['A']}\n")
-    handle.write(f"C: {d['C']}\n")
-    handle.write(f"T: {d['T']}\n")
-    handle.write(f"G: {d['G']}\n")
 
+d_DNA = {'A':'T', 'T':'A', 'G':'C', 'C':'G'}
+
+if len(sequence)%2 == 0:
+    for i in range(len(sequence)):
+        if sequence[i] == d_DNA[sequence[-(i+1)]]:
+            i_palindromic += 0
+              
+        else:
+            i_palindromic += 1
+    
+    if i_palindromic == 0:
+        print("{0} is palindromic".format(sequence))
+    
+    else:
+        print("{0} is not palindromic".format(sequence))
+    
+else:
+    print("{0} is not palindromic".format(sequence))
